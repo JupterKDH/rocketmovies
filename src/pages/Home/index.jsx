@@ -1,64 +1,70 @@
-import {FiPlus} from "react-icons/fi";
-import {Container, Content, NewNote} from "./styles";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import {Note} from "../../components/Note";
+import {FiPlus} from "react-icons/fi";
+import {Container, Content, NewMovie} from "./styles";
+
+import { api } from '../../services/api';
+
+import {Movie} from "../../components/Movie"
 import {Header} from "../../components/Header";
-import {Section} from "../../components/Section";
+import { Input } from '../../components/Input';
 
 
 export function Home(){
+  const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
+
+  useEffect(() => {
+    async function fetchMovies() {
+      const response = await api.get(`/movies?title=${search}`);
+      setMovies(response.data);
+    }
+
+    fetchMovies();
+  }, [search]);
+
+  
+
   return (
     <Container>
     
-      <Header />
+      <Header>
+        <Input
+          placeholder="Pesquisar pelo título"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </Header>
 
-      <Content>
-        <div className="Movie">
+      <main>
+        <header>
           <h1>Meus filmes</h1>
 
-          <NewNote to="/new">
+          <NewMovie to="/new">
             <FiPlus/>
             Adicionar filme          
-          </NewNote>
-
-        </div>
-
-        <Section>
-          <Note data={{
-            title: "Interestellar", 
-            p: "Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se...",
-            tags: [
-              {id: "1", name: "Ficção Científica"},
-              {id: "2", name: "Drama"},
-              {id: "3", name: "Família"}
-            ]
-            }}/>
-        </Section>
+          </NewMovie>
+        </header>
+      
+        <Content>
+          {
+            movies.map(movie => (
+              <Movie 
+                key={movie.id} 
+                data={movie} 
+                onClick={() => handleDetails(movie.id)} 
+              />
+            ))
+          }
+        </Content>
         
-        <Section>
-          <Note data={{
-            title: "Interestellar", 
-            p: "Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se...",
-            tags: [
-              {id: "1", name: "Ficção Científica"},
-              {id: "2", name: "Drama"},
-              {id: "3", name: "Família"}
-            ]
-            }}/>
-        </Section>
-
-        <Section>
-          <Note data={{
-            title: "Interestellar", 
-            p: "Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se...",
-            tags: [
-              {id: "1", name: "Ficção Científica"},
-              {id: "2", name: "Drama"},
-              {id: "3", name: "Família"}
-            ]
-            }}/>
-        </Section>
-      </Content>
+      </main>
     </Container>
   );
 }

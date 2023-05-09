@@ -7,57 +7,61 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 10.5rem auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas: 
   "header"
   "content";
+
+  >main {
+    grid-area: content;
+
+    width: 100%;
+    max-width: 113.7rem;
+    margin: 4.8rem auto;
+
+    header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 3.8rem;
+
+      h1{
+        font-weight: 400;
+      }
+    }
+  }
 `;
 
-
 export const Content = styled.div`
-  grid-area: content;
-
-  padding: 0 12.3rem;
+  max-height: calc(100vh - 29.7rem);
 
   overflow-y: auto;
 
-  .Movie{
-    display:flex;
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: center;
+  ::-webkit-scrollbar{
+    width: .8rem;
+  }
 
-    margin-top: 5rem;
-
-    >h1{
-      font-size: 3.2rem;
-      line-height: 4.2rem;
-      font-weight: 400;
-    }
+  ::-webkit-scrollbar-thumb{
+    background-color: ${({ theme }) => theme.COLORS.PINK};
+    border-radius: 0.8rem;
   }
   
 `;
 
-export const NewNote = styled(Link)`
-  grid-area: newnote;
-  width: 20.7rem;
-  height: 5.6rem;
-
+export const NewMovie = styled(Link)`
   background-color: ${({theme}) => theme.COLORS.PINK};
 
   color: ${({theme}) => theme.COLORS.BACKGROUND_5};
   font-weight: 500;
 
-  border: 0;
+  border: none;
   border-radius: 1rem;
 
-  padding: 0 3.2rem;
-
-  svg{
-    margin-right: 0.8rem;
-  }
+  padding: 1.3rem 3.2rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;
 `;

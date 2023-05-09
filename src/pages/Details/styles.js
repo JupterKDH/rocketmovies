@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 10.5rem auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas: 
   "header"
   "content";
@@ -14,64 +14,73 @@ export const Container = styled.div`
     grid-area: content;
     overflow-y: auto;
 
-    padding: 6.4rem 0;
     
-   
+    width: 113.7rem;
+    margin: 4rem auto;
 
-    .movie{
+    header{
       display: flex;
-      align-items: center;
-      margin: 2.4rem 0;
+      flex-direction: column;
 
-      >h1{
-        padding-right: 1.7rem;
+      margin-bottom: 4rem;
 
-        font-size: 3.6rem;
+      button{
+        background: none;
+        border: none;
+      }
+
+      div{
+        display: flex;
+        align-items: center;
+      }
+
+      .movie-info{
+        gap: 0.8rem;
+        margin-top: 2.4rem;
+
+        p:nth-child(1), div{
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+        }
+
+        img{
+          width: 1.6rem;
+          height: 1.6rem;
+          border-radius: 50%;
+        }
+
+        svg{
+          color: ${({ theme }) => theme.COLORS.PINK};
+        }
+      }
+
+      h1{
         font-weight: 500;
-      }
-
-      svg{
-        color: ${({theme}) => theme.COLORS.PINK};
-
-        width: 2rem;
-        height: 2rem;
-
-        margin-right: 1rem
+        font-size: 3.6rem;
+        margin-right: 1.9rem;
       }
     }
 
-    .nameDate{
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+    >p{
+      text-align: justify;
+      overflow-wrap: break-word;
 
-      >img{
-        width: 1.6rem;
-        height: 1.6rem;
-      }
+      color: ${({ theme }) => theme.COLORS.WHITE};
+      line-height: 2.1rem;
 
-      svg{
-        color: ${({theme}) => theme.COLORS.PINK};
-      }
+      margin-top: 4rem;
+      max-width: 113.7rem;
+    }
+
+    button{
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_4};
+      color: ${({ theme }) => theme.COLORS.PINK};
+
+      width: calc(50% - 2rem);
+      margin-top: 4rem;
     }
   }
-`;
 
-export const Content = styled.div`
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-  padding: 0 12.3rem;
   
-  button{
-    align-self: start;
-  }
-
-  >p{
-    font-size: 1.6rem;
-    line-height: 2.1rem;
-  }
 `;

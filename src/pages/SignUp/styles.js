@@ -9,16 +9,11 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  padding: 0 13.6rem;
-
-  min-width: 63.7rem;
+  padding: 0 16.1rem 0 13.6rem;
 
   display: flex;
   flex-direction: column;
-  
   justify-content: center;
-
-  background: ${({theme}) => theme.COLORS.BACKGROUND};
 
   >h1{
     
@@ -42,10 +37,6 @@ export const Form = styled.form`
     color: ${({theme}) => theme.COLORS.GRAY_1};
   }
 
-  >Button{
-    margin-top: 0.8rem;
-  }
-
   >a{
     margin: 4.2rem auto 0;
 
@@ -53,6 +44,7 @@ export const Form = styled.form`
 
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.8rem;
   }
 `;

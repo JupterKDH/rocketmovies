@@ -11,6 +11,7 @@ export const Container = styled.div`
   border: ${({theme, isNew}) => isNew ? `1px dashed ${theme.COLORS.GRAY_2}` : "none"};
   border-radius:1rem;
 
+  margin-right: 2.4rem;
   margin-bottom: 0.8rem;
   padding-right: 1.6rem;
 
@@ -18,25 +19,19 @@ export const Container = styled.div`
     border:none;
 
     background:none;
-  }
 
-  .button-delete{
-    color: ${({theme}) => theme.COLORS.PINK};
-  }
-  
-  .button-add{
-    color: ${({theme}) => theme.COLORS.PINK};
+    color: ${({ theme }) => theme.COLORS.PINK};
   }
 
   >input{
     height: 5.6rem;
     width: 100%;
 
-    padding: 1.2rem;
+    padding: 1.6rem;
 
     color: ${({theme}) => theme.COLORS.WHITE};
 
-    background: none;
+    background: transparent;
 
     border: none;
 

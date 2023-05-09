@@ -13,7 +13,7 @@ export const Container = styled.button`
   border-radius: 1rem;
 
   padding: 0 14.5rem;
-  margin-top: 16.8rem;
+  margin-top: 2.4rem;
 
   &:disabled{
     opacity: 0.5;

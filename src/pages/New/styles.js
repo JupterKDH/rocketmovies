@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 10.5rem auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas: 
   "header" 
   "content";
@@ -15,71 +15,62 @@ export const Container = styled.div`
     overflow-y: auto;
   }
 
-  Section{
+  >main::-webkit-scrollbar{
+    width: 0.8rem;
+  }
 
-    >h2{
-
-      color: ${({theme}) => theme.COLORS.GRAY_2};
-    }
+  > main::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.COLORS.PINK};
+    border-radius: 0.8rem;
   }
 
   .tags{
     display: flex;
-    gap: 2.4rem;
+    
     flex-wrap: wrap;
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_3};
-    padding: 1.6rem;
+    padding: 1.6rem 1.6rem 0.8rem;
 
-    margin-top: 2.4rem;
+    border-radius: 0.8rem;
   }
 `;
 
 export const Form = styled.form`
-  padding: 0 12.3rem;
+  max-width: 113.7rem;
 
   margin: 3.8rem auto;
 
   >header{
     display: flex;
     flex-direction: column;
-    align-items: left;
-
-    margin-bottom: 3.6rem;
-
-    >h1{
-      font-weight: 500;
-      font-size: 36px;
-      line-height: 47px;
-    }
-  }
-
-  .Inputs{
-    display:flex;
-    flex-direction: row;
-    gap: 4rem;
+    
 
     margin-bottom: 4rem;
+
+    button{
+      background: none;
+      border: none;
+    }
+
+    h1{
+      font-weight: 500;
+      font-size: 3.6rem;
+      line-height: 4.7rem;
+    }
   }
 
-  .Buttons{
-    display:flex;
-    flex-direction: row;
+  >div{
+    display: flex;
     gap: 4rem;
 
-    margin-top: 4rem;
-
-    >Button{
-      margin-top: 4rem;
-    
-    }
-    >Button:first-child{
+    button:nth-child(1){
       background-color: ${({theme}) => theme.COLORS.BACKGROUND_3};
       color: ${({theme}) => theme.COLORS.PINK};
     }
-  
   }
 
-  
-  
+  textarea{
+    margin-top: 3.2rem;
+  }
 `;

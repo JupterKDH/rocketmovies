@@ -14,17 +14,9 @@ export const Container = styled.div`
 
     padding: 0 12.4rem;
 
-    svg{
-      color: ${({theme}) => theme.COLORS.PINK};
-      font-size: 1.6rem;
-    }
-
-    >a{
-      color: ${({theme}) => theme.COLORS.PINK};
-
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+    button{
+      background: none;
+      border: none;
     }
   }
 `;
@@ -32,21 +24,17 @@ export const Container = styled.div`
 export const Form = styled.form`
   max-width: 34rem;
 
-  margin: -8.4rem auto 0;
+  margin: -3rem auto;
 
   >div:nth-child(4){
-    margin-top: 2.4rem;
-  }
-
-  >Button{
-    margin-top: 2.4rem;
+    margin-top: 1.6rem;
   }
 `;
 
 export const Avatar = styled.div`
   position: relative;
 
-  margin: -9.4rem auto 6.4rem;
+  margin: -12.4rem auto 6.4rem;
 
   width: 18.6rem;
   height: 18.6rem;
@@ -84,7 +72,7 @@ export const Avatar = styled.div`
       width: 2rem;
       height: 2rem;
 
-      color: ${({theme}) => theme.COLORS.BACKGROUND_800};
+      color: ${({theme}) => theme.COLORS.BACKGROUND_5};
     }
   }
 `;

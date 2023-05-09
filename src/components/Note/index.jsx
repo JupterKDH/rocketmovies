@@ -1,31 +1,17 @@
 import { Container } from "./styles";
-import { Tag} from "../Tag";
-import { AiFillStar, AiOutlineStar} from "react-icons/ai"
 
+import { VscStarFull, VscStarEmpty } from "react-icons/vsc";
 
-export function Note({data, ...rest}){
-  return (
-    <Container {...rest}>
-      <h1>{data.title}</h1>
+export function Note({ grade, isBigSize }) {
+  let stars = [];
 
-      <div className="Rate">
-        <AiFillStar/>
-        <AiFillStar/>
-        <AiFillStar/>
-        <AiFillStar/>
-        <AiOutlineStar/>
-      </div>
-      
+  for (let i = 1; i <= 5; i++) {
+    if (i <= grade) {
+      stars.push(<VscStarFull key={i} />);
+    } else {
+      stars.push(<VscStarEmpty key={i} />);
+    }
+  }
 
-      <p>{data.p}</p>
-      {
-        data.tags &&
-        <footer>
-          {
-            data.tags.map (tag => <Tag key={tag.id} title={tag.name}/>)
-          }
-        </footer>
-      }
-    </Container>
-  )
+  return <Container isBigSize={isBigSize}>{stars}</Container>;
 }
