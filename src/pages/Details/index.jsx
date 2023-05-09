@@ -43,7 +43,7 @@ export function Details(){
     const confirm = window.confirm("Deseja realmente remover o filme?");
 
     if(confirm) {
-      await api.delete(`/movies${params.id}`);
+      await api.delete(`/movies/${params.id}`);
       navigate(-1);
     }
   }
